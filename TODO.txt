@@ -1,0 +1,25 @@
+
+ DONE            JOB
+------------------------------------------------------------
+  X     0. random seeding 
+        1. warm-up : multiple starts
+        2. autmatic extraction of features after learning
+  X     3. automatic ranking on basis vectors after learning
+  X     4. group-sparsity for multi-channel
+  X     5. an script that generate and check config file  -------> a template is stored in the data folder
+  X     6. multi-class/ multi-label case ----> for this initialization.m need to change
+  X     7. writing MOSEK find module
+        8. replacin mosek with a free version
+   X    9. parallelize the projection algorithm
+   X    10. ITK image read/write 
+   X    11. In documentaion, talk about normalization
+  N/A   12. Try/replace your spg with Mark Schmidt version (it should be very easy)
+        13. Possibly replacing .mat with .hdf5
+        14. Multi-resolution initialization for full resolution case
+   X    15. Create a log file for each experiment
+   X    16. Either change the way the program extract features or make temporary file inside of the experimehnt folder
+        17. If you don't use className, remove it!
+   X    18. When code continues, Reports is replaced with a new one fix it!
+        19. Interface with Nipype: http://nipy.sourceforge.net/nipype/devel/matlab_interface_devel.html
+        20. Add a sanity-check to paramSearch that each class should have more than one subject in order for param search to work
+ 

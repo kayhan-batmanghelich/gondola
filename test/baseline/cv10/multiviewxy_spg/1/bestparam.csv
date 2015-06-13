@@ -1,0 +1,6 @@
+ID,Accuracy,Description of the classifier,Parameters
+Bayesian,25.0,Optimal Bayes classifier is Multinomial Bayes: OptAcc = 25.0,"(True, False)"
+Logistic,0.0,"Logistic classifier OptRidge = 1e-10, OptMaxIts = -1, OptAcc = 0.0","(1e-10, -1)"
+Random Forest,50.0,"Random-Forest classifier: OptNumTrees = 1, OptNumFeatures = 0, OptAcc = 50.0","(1, 0)"
+Simple Logistic,50.0,"Simple logistic classifier: OptHeuristicStop= 10, OptNumBoostingIterations=0, OptAcc = 50.0","(10, 0)"
+SMO,25.0,"SMO classifier(Poly kernel): OptC=1, OptExponent=2, OptAcc=25.0","(False, 1, 2)"

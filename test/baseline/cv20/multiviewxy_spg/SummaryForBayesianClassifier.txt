@@ -1,0 +1,8 @@
+
+Confusion matrix of Bayesian classifier (numbers of classified samples NOT percentages):
+
+[[ 5.  5.]]
+[[ 9.  0.]]
+
+Normalized trace of confusion matrix: [[ 0.26315789]]
+

@@ -1,0 +1,11 @@
+ID,ClassLabel-actual,ClassLabel-prediction,ClassLabel-incorrect
+s002_S_0816,1,1,N
+s002_S_0938,1,1,N
+s002_S_0955,1,2,Y
+s002_S_1018,1,1,N
+s003_S_1059,1,1,N
+s023_S_0058,2,1,Y
+s023_S_0061,2,1,Y
+s023_S_0081,2,2,N
+s023_S_0926,2,1,Y
+s023_S_0963,2,1,Y

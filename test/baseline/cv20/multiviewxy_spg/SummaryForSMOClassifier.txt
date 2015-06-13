@@ -1,0 +1,8 @@
+
+Confusion matrix of SMO classifier (numbers of classified samples NOT percentages):
+
+[[ 7.  3.]]
+[[ 8.  1.]]
+
+Normalized trace of confusion matrix: [[ 0.42105263]]
+

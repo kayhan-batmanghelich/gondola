@@ -1,0 +1,6 @@
+ID,Accuracy,Description of the classifier,Parameters
+Bayesian,50.0,Optimal Bayes classifier is Naive Bayes with kernel density estimation: OptAcc = 50.0,"(False, True)"
+Logistic,83.3333333333,"Logistic classifier OptRidge = 1e-10, OptMaxIts = 1, OptAcc = 83.3333333333","(1e-10, 1)"
+Random Forest,83.3333333333,"Random-Forest classifier: OptNumTrees = 1, OptNumFeatures = 5, OptAcc = 83.3333333333","(1, 5)"
+Simple Logistic,83.3333333333,"Simple logistic classifier: OptHeuristicStop= 10, OptNumBoostingIterations=0, OptAcc = 83.3333333333","(10, 0)"
+SMO,83.3333333333,"SMO classifier(Poly kernel): OptC=1, OptExponent=1, OptAcc=83.3333333333","(False, 1, 1)"

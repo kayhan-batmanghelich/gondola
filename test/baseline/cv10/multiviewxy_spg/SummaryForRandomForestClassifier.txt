@@ -1,0 +1,8 @@
+
+Confusion matrix of Random Forest classifier (numbers of classified samples NOT percentages):
+
+[[ 3.  2.]]
+[[ 0.  5.]]
+
+Normalized trace of confusion matrix: [[ 0.8]]
+

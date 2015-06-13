@@ -1,0 +1,55 @@
+#! /bin/bash
+
+##############################################################################
+# @file  gondola-sbia.sh
+# @brief Script to use for execution of GONDOLA within SBIA environment.
+#
+# This scripts sets up the environment at SBIA before launching the gondola
+# executable built by MATLAB Compiler. Note that this script can, in particular,
+# further act as submit script for SGE's qsub command, e.g., to submit a
+# job to the batch-queuing system at SBIA, run:
+# @code
+# qsub gondola-sbia learn [options]
+# @endcode
+#
+# @attention As MATLAB does not allow us to control the number of threads
+#            (see http://www.mathworks.com/help/techdoc/rn/bry1ecg-1.html#br1ask3-1)
+#            make sure to use the -R -singleCompThread option when compiling
+#            gondola using the MATLAB Compiler (mcc) or simply -singleCompThread
+#            when executing gondola within a MATLAB instance.
+#
+# Copyright (c) 2012 University of Pennsylvania. All rights reserved.
+# See http://www.rad.upenn.edu/sbia/software/license.html or COPYING file.
+#
+# Contact: SBIA Group <sbia-software at uphs.upenn.edu>
+##############################################################################
+
+. ${BASIS_BASH_UTILITIES}      || { echo "Failed to source BASIS utilities!"  1>&2; exit 1; }
+. /usr/share/Modules/init/bash || { echo "Failed to source module functions!" 1>&2; exit 1; }
+
+#$ -S /bin/bash
+#$ -o $HOME/sge_job_output/$JOB_NAME.$JOB_ID.log
+#$ -j y
+#$ -l mem_free=8G
+
+# load MATLAB Compiler Runtime (MCR)
+module unload matlab 1> /dev/null 2>&1 # fails due to unalias mcc problem
+module load matlab/mcr
+[ $? -eq 0 ] || { echo "Failed to load module matlab/mcr!" 1>&2; exit 1; }
+
+# load the proper ITK version
+module unload itk
+module load itk/@ITK_VERSION_MAJOR@.@ITK_VERSION_MINOR@
+[ $? -eq 0 ] || { echo "Failed to load module itk/@ITK_VERSION_MAJOR@.@ITK_VERSION_MINOR@!" 1>&2; exit 1; }
+
+# load MOSEK if available
+if [ -n '@MOSEK_DIR@' ]; then
+    export LD_LIBRARY_PATH=@MOSEK_DIR@/tools/platform/linux64x86/bin:$LD_LIBRARY_PATH
+    export PATH=@MOSEK_DIR@/tools/platform/linux64x86/bin:$PATH
+    export MOSEKLM_LICENSE_FILE=@MOSEK_DIR@/licenses
+fi
+
+# print hostname and execute gondola
+echo "Host: `hostname`"
+echo
+execute -v -- gondola "$@"
